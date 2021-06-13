@@ -7,7 +7,6 @@ Version: 1.0
 Author: Jhon Marreros Guzmán
 Author URI: https://decodecms.com
 License: MIT
-License URI:
 */
 
 // Creación del ítem de menú en menú Herramientas
