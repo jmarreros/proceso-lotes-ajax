@@ -49,7 +49,7 @@ function dcms_process_batch_ajax(){
     $count  = $step*$batch;
     $status = 0;
 
-    if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'dcms-ajax-batch-nonce_')) {
+    if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'dcms-ajax-batch-nonce')) {
         error_log('Error de Nonce!');
         return;
     }
