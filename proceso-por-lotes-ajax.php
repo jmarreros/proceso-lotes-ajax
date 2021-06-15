@@ -73,20 +73,12 @@ function dcms_process_batch_ajax(){
         $status = 1;
     }
 
-    // Construimos la url
-    $args = array_merge($_REQUEST, [
-        'step'  => $step,
-        'total' => $total,
-        'nonce' => wp_create_nonce( 'process-batch-ajax' ),
-    ]);
-    $url = add_query_arg( $args, admin_url() );
-
-
     // Construimos la respuesta
     $res = [
         'status'  => $status,
         'step'    => $step,
-        'url'     => $url,
+        'count'   => $count,
+        'total'   => $total,
     ];
 
 	echo json_encode($res);
@@ -98,3 +90,4 @@ function dcms_process_batch_ajax(){
 function dcms_get_total_ajax(){
     return 500;
 }
+

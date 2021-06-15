@@ -9,7 +9,7 @@
     });
 
     // Process every step
-    function dcms_process_step(step) {
+    function dcms_process_step(step, total = null) {
 
 		$.ajax({
 			url : dcms_vars.ajaxurl,
@@ -17,13 +17,14 @@
 			data: {
 				action : 'dcms_process_batch_ajax',
                 nonce  : dcms_vars.ajaxnonce,
+                total,
                 step,
 			},
             dataType: 'json',
 			success: function(res){
                 if ( res.status  == 0){
-    				$('.process-info').text('Procesando paso: ' + res.step);
-                    dcms_process_step(res.step)
+    				$('.process-info').text('Procesados: ' + res.count + ' de : ' + res.total);
+                    dcms_process_step(res.step, res.total)
                 } else {
                     $('.process-info').text('Finalizado');
                 }
